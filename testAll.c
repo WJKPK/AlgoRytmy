@@ -1,6 +1,5 @@
 #include <criterion/criterion.h>
 #include "binary_s.h"
-#include <stdio.h>
 
 Test(binarySearchTest,oddSearch)
 {
@@ -20,31 +19,51 @@ Test(binarySearchTest,evenSearch)
 	}
 }
 
-Test(binarySearchTestLowerCase, oddSearch)
+Test(binarySearchTestLowerBound, oddSearch)
 {
 	int tab[17] = {0, 1, 2, 3, 3, 4, 4, 4, 4, 7, 8, 9, 10, 11, 12, 13, 14};
-	cr_assert(binarySearchLowerCase(0,tab,17) == 0, "ERR  in: binarySearchLowerCas");
-	cr_assert(binarySearchLowerCase(4,tab,17) == 5, "ERR  in: binarySearchLowerCas");
-	cr_assert(binarySearchLowerCase(3,tab,17) == 3, "ERR  in: binarySearchLowerCas");
-	cr_assert(binarySearchLowerCase(14,tab,17) == 16, "ERR  in: binarySearchLowerCas");
+	cr_assert(binarySearchLowerBound(0,tab,17) == 0, "ERR  in: binarySearchLowerCas");
+	cr_assert(binarySearchLowerBound(4,tab,17) == 5, "ERR  in: binarySearchLowerCas");
+	cr_assert(binarySearchLowerBound(3,tab,17) == 3, "ERR  in: binarySearchLowerCas");
+	cr_assert(binarySearchLowerBound(14,tab,17) == 16, "ERR  in: binarySearchLowerCas");
 }
 
-Test(binarySearchTestLowerCase,evenSearch)
+Test(binarySearchTestLowerBound,evenSearch)
 {
 	int tab[20] = {0, 1, 2, 3, 3, 4, 4, 4, 4, 7, 8, 9, 10, 11, 12, 13, 14, 14, 15, 16};
-	cr_assert(binarySearchLowerCase(0,tab,20) == 0, "ERR  in: binarySearchLowerCas");
-	cr_assert(binarySearchLowerCase(4,tab,20) == 5, "ERR  in: binarySearchLowerCas");
-	cr_assert(binarySearchLowerCase(3,tab,20) == 3, "ERR  in: binarySearchLowerCas");
-	cr_assert(binarySearchLowerCase(13,tab,20) == 15, "ERR  in: binarySearchLowerCas");
-	cr_assert(binarySearchLowerCase(14,tab,20) == 16, "ERR  in: binarySearchLowerCas");
-	cr_assert(binarySearchLowerCase(16,tab,20) == 19, "ERR  in: binarySearchLowerCas");
+	cr_assert(binarySearchLowerBound(0,tab,20) == 0, "ERR  in: binarySearchLowerCas");
+	cr_assert(binarySearchLowerBound(4,tab,20) == 5, "ERR  in: binarySearchLowerCas");
+	cr_assert(binarySearchLowerBound(3,tab,20) == 3, "ERR  in: binarySearchLowerCas");
+	cr_assert(binarySearchLowerBound(13,tab,20) == 15, "ERR  in: binarySearchLowerCas");
+	cr_assert(binarySearchLowerBound(14,tab,20) == 16, "ERR  in: binarySearchLowerCas");
+	cr_assert(binarySearchLowerBound(16,tab,20) == 19, "ERR  in: binarySearchLowerCas");
 }
 
-Test(binarySearchTestUpperCase, oddSearch)
+Test(binarySearchTestUpperBound, oddSearch)
 {
 	int tab[17] = {0, 1, 2, 3, 3, 4, 4, 4, 4, 7, 8, 9, 10, 11, 12, 13, 14};
-	cr_assert(binarySearchUpperCase(0,tab,17) == 0, "ERR  in: binarySearchUpperCas: 1");
-	cr_assert(binarySearchUpperCase(4,tab,17) == 8, "ERR  in: binarySearchUpperCas: 2");
-	cr_assert(binarySearchUpperCase(3,tab,17) == 4, "ERR  in: binarySearchUpperCas: 3");
-	cr_assert(binarySearchUpperCase(14,tab,17) == 16, "ERR  in: binarySearchUpperCas: 4");
+	cr_assert(binarySearchUpperBound(0,tab,17) == 0, "ERR  in: binarySearchUpperCas: 1");
+	cr_assert(binarySearchUpperBound(4,tab,17) == 8, "ERR  in: binarySearchUpperCas: 2");
+	cr_assert(binarySearchUpperBound(3,tab,17) == 4, "ERR  in: binarySearchUpperCas: 3");
+	cr_assert(binarySearchUpperBound(14,tab,17) == 16, "ERR  in: binarySearchUpperCas: 4");
+}
+
+Test(countSortTest,firstTestSearch)
+{
+#define ARRAYSIZE 6
+	int* histogram = NULL;
+	int testArray[ARRAYSIZE] = {3,3,1,5,0,8};
+	int* output = countSort(testArray, ARRAYSIZE, 8, histogram);
+
+	cr_expect(output[0] == 0, "ERR  in: countSort: 0");
+	cr_expect(output[1] == 1, "ERR  in: countSort: 1");
+	cr_expect(output[2] == 3, "ERR  in: countSort: 2");
+	cr_expect(output[3] == 3, "ERR  in: countSort: 3");
+	cr_expect(output[4] == 5, "ERR  in: countSort: 4");
+	cr_expect(output[5] == 8, "ERR  in: countSort: 5");
+
+	free(histogram);
+	free(output);
+
+#undef ARRAYSIZE
 }

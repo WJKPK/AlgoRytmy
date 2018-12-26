@@ -1,8 +1,9 @@
 #ifndef BINARY_S_H_
 #define BINARY_S_H_
 
+#include <stdio.h>
 int binarySearch(int value, int tab[], int tabSize);
-int binarySearchLowerCase(int value, int tab[], int tabSize);
-int binarySearchUpperCase(int value, int tab[], int tabSize);
-
+int binarySearchLowerBound(int value, int tab[], int tabSize);
+int binarySearchUpperBound(int value, int tab[], int tabSize);
+int* countSort (int inputArray[], const int numberOfElements, const int maxVal, int* restrict histogram);
 #endif /* BINARY_S_H_ */

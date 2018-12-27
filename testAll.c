@@ -51,19 +51,17 @@ Test(binarySearchTestUpperBound, oddSearch)
 Test(countSortTest,firstTestSearch)
 {
 #define ARRAYSIZE 6
-	int* histogram = NULL;
 	int testArray[ARRAYSIZE] = {3,3,1,5,0,8};
-	int* output = countSort(testArray, ARRAYSIZE, 8, histogram);
+	int* histo = countSort(testArray, ARRAYSIZE, 8);
 
-	cr_expect(output[0] == 0, "ERR  in: countSort: 0");
-	cr_expect(output[1] == 1, "ERR  in: countSort: 1");
-	cr_expect(output[2] == 3, "ERR  in: countSort: 2");
-	cr_expect(output[3] == 3, "ERR  in: countSort: 3");
-	cr_expect(output[4] == 5, "ERR  in: countSort: 4");
-	cr_expect(output[5] == 8, "ERR  in: countSort: 5");
+	cr_expect(testArray[0] == 0, "ERR  in: countSort: 0");
+	cr_expect(testArray[1] == 1, "ERR  in: countSort: 1");
+	cr_expect(testArray[2] == 3, "ERR  in: countSort: 2");
+	cr_expect(testArray[3] == 3, "ERR  in: countSort: 3");
+	cr_expect(testArray[4] == 5, "ERR  in: countSort: 4");
+	cr_expect(testArray[5] == 8, "ERR  in: countSort: 5");
 
-	free(histogram);
-	free(output);
+	free(histo);
 
 #undef ARRAYSIZE
 }

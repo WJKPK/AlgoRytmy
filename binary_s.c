@@ -1,5 +1,7 @@
 #include<stdio.h>
+#include<time.h>
 #include<stdlib.h>
+
 
 int binarySearch(int value, int tab[], int tabSize)
 {
@@ -73,10 +75,10 @@ int binarySearchUpperBound(int value, int tab[], int tabSize)
 	return firstElemNum - 1;
 }
 
-int* countSort (int inputArray[], const int numberOfElements, const int maxVal, int* restrict histogram)
+int* countSort (int* inputArray, const int numberOfElements, const int maxVal)
 {
 	int* sorrtedArray = (int*)malloc(numberOfElements * sizeof(*sorrtedArray));
-	histogram = (int*)calloc(maxVal + 1, sizeof(*histogram));
+	int* histogram = (int*)calloc(maxVal + 1, sizeof(*histogram));
 
 	int i;
 	for (i = 0; i < numberOfElements; i++)
@@ -90,9 +92,40 @@ int* countSort (int inputArray[], const int numberOfElements, const int maxVal, 
 		int j = 0;
 		for (; j < histogram[i]; j++)
 		{
-			sorrtedArray[jMemoryVal + j] = i;
+			inputArray[jMemoryVal + j] = i;
 		}
 		jMemoryVal += j;
 	}
-	return sorrtedArray;
+	return histogram;
+}
+
+int randomNumbers(int min, int max)
+{
+    int tmp;
+    if (max>=min)
+        max-= min;
+    else
+    {
+        tmp= min - max;
+        min= max;
+        max= tmp;
+    }
+    return max ? (rand() % max + min) : min;
+}
+
+void bubbleSort(int* inputArray, int sizeOfArray)
+{
+	int i, j, temp;
+	for (i = 0; i < sizeOfArray - 1; i++)
+        {
+		for (j = 0; j < sizeOfArray - 1 - i; j++)
+		{
+			if (inputArray[j] > inputArray[j+1])
+			{
+				temp = inputArray[j + 1];
+				inputArray[j + 1] = inputArray[j];
+				inputArray[j] = temp;
+			}
+		}
+        }
 }

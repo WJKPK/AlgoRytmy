@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
 int randomNumbers(int min, int max);
 int binarySearch(int value, int tab[], int tabSize);
 int binarySearchLowerBound(int value, int tab[], int tabSize);

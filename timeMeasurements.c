@@ -32,7 +32,7 @@ int main()
 	int divided;
 	for(i = 0; i < NUM_ELEM_UNSORT_ARR; i+=MAXVAL)
 	{
-		divided = i/MAXVAL;
+		divided = (int)(MAXVAL*(double)i/MAXVAL);
 		linearSearch(divided, arrayWithRandNum, NUM_ELEM_UNSORT_ARR);
 	}
 	stop = clock();
@@ -45,7 +45,7 @@ int main()
 
 	for(i = 0; i < NUM_ELEM_UNSORT_ARR; i+=MAXVAL)
 	{
-		divided = i/MAXVAL;
+		divided = (int)(MAXVAL*(double)i/MAXVAL);
 		binarySearch(divided, arrayWithRandNum, NUM_ELEM_UNSORT_ARR);
 	}
 	stop = clock();

@@ -25,7 +25,7 @@ int binarySearch(int value, int tab[], int tabSize)
 		}
 		if(tab[midSearchedElem] > value)
 		{
-			lastElemNum = midSearchedElem -1;
+			lastElemNum = midSearchedElem - 1;
 		}
 	}
 	return result;
@@ -75,28 +75,30 @@ int binarySearchUpperBound(int value, int tab[], int tabSize)
 	return firstElemNum - 1;
 }
 
-int* countSort (int* inputArray, const int numberOfElements, const int maxVal)
+void countSort (int* inputArray, const int numberOfElements, const int maxVal)
 {
-	int* sorrtedArray = (int*)malloc(numberOfElements * sizeof(*sorrtedArray));
-	int* histogram = (int*)calloc(maxVal + 1, sizeof(*histogram));
+	int histo[maxVal + 1];
 
 	int i;
+	for (i = 0; i < maxVal; i++)
+	{
+		histo[i] = 0;
+	}
 	for (i = 0; i < numberOfElements; i++)
 	{
-		++histogram[inputArray[i]];
+		++histo[inputArray[i]];
 	}
 	// te dwie petle wykonają się w sumie numOfElements razy.
-	for (i = 0; i < maxVal +1; i++)
+	int jMemoryVal = 0;
+	for (i = 0; i < maxVal; i++)
 	{
-		static int jMemoryVal = 0;
 		int j = 0;
-		for (; j < histogram[i]; j++)
+		for (; j < histo[i]; j++)
 		{
 			inputArray[jMemoryVal + j] = i;
 		}
 		jMemoryVal += j;
 	}
-	return histogram;
 }
 
 int randomNumbers(int min, int max)
@@ -128,4 +130,16 @@ void bubbleSort(int* inputArray, int sizeOfArray)
 			}
 		}
         }
+}
+
+int linearSearch (int searchedValue, int tab[], int tabSize)
+{
+	for (int i =0; i < tabSize; i++)
+	{
+		if(tab[i] == searchedValue)
+		{
+			return i;
+		}
+	}
+	return -1;
 }

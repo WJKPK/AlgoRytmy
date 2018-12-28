@@ -50,9 +50,9 @@ Test(binarySearchTestUpperBound, oddSearch)
 
 Test(countSortTest,firstTestSearch)
 {
-#define ARRAYSIZE 6
-	int testArray[ARRAYSIZE] = {3,3,1,5,0,8};
-	int* histo = countSort(testArray, ARRAYSIZE, 8);
+#define ARRAYSIZE 7
+	int testArray[ARRAYSIZE] = {3,3,1,5,0,8,9};
+	countSort(testArray, ARRAYSIZE, 9);
 
 	cr_expect(testArray[0] == 0, "ERR  in: countSort: 0");
 	cr_expect(testArray[1] == 1, "ERR  in: countSort: 1");
@@ -60,8 +60,7 @@ Test(countSortTest,firstTestSearch)
 	cr_expect(testArray[3] == 3, "ERR  in: countSort: 3");
 	cr_expect(testArray[4] == 5, "ERR  in: countSort: 4");
 	cr_expect(testArray[5] == 8, "ERR  in: countSort: 5");
-
-	free(histo);
+	cr_expect(testArray[6] == 9, "ERR  in: countSort: 6");
 
 #undef ARRAYSIZE
 }

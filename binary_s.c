@@ -115,7 +115,7 @@ int randomNumbers(int min, int max)
     return max ? (rand() % max + min) : min;
 }
 
-void bubbleSort(int* inputArray, int sizeOfArray)
+void bubbleSort(int* inputArray, const int sizeOfArray)
 {
 	int i, j, temp;
 	for (i = 0; i < sizeOfArray - 1; i++)

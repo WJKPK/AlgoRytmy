@@ -4,8 +4,6 @@
 #define NUM_ELEM_UNSORT_ARR 100000
 #define NUM_OF_REP 10000
 
-#define VARIABLES_FOR_MACRO clock_t start; clock_t stop; double elapsed
-
 #define TIME_MEASUREMENT_SEARCH(FUNCTION, INPUT_ARRAY, NUM_ARR_ELEM) start = clock();\
 	for(i = 0; i < NUM_ARR_ELEM; i += NUM_ARR_ELEM/NUM_OF_REP)\
 		FUNCTION(i, INPUT_ARRAY, NUM_ARR_ELEM);\
@@ -22,6 +20,10 @@ static void fillRandom(int* tab, int numberOfElem)
 
 int main()
 {
+	int arrayOfNumbers[8] = {3, 3,7,7,13,18,21,25};
+	printf("Given is an array: 3, 3, 7, 7, 13, 18, 21, 25\n");
+	printf("Lowerbond for 8: %d\n", binarySearchLowerBound(8, arrayOfNumbers, 8));
+	printf("Upperbond for 8: %d\n", binarySearchUpperBound(8, arrayOfNumbers, 8));
 	printf("Measurment for %d elements in unsorted array.\n", NUM_ELEM_UNSORT_ARR);
 	srand(time(0));
 	clock_t start, stop;

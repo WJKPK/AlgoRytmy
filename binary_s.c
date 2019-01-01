@@ -34,7 +34,7 @@ int binarySearch(int value, int tab[], int tabSize)
 int binarySearchLowerBound(int value, int tab[], int tabSize)
 {
 	int firstElemNum = 0;
-	int lastElemNum = tabSize-1;
+	int lastElemNum = tabSize;
 
 	int midSearchedElem;
 	while (firstElemNum < lastElemNum)

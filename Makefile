@@ -1,6 +1,6 @@
 build:
-	gcc *.c -O2 -o algoRytmy.out -lcriterion
+	gcc *.c -O3 -o algoRytmy.out -lcriterion
 test: build
 	./algoRytmy.out
 clean:
-	rm -f *.out *o 
+	rm -f *.out *o

@@ -72,23 +72,18 @@ int binarySearchUpperBound(int value, int tab[], int tabSize)
 			lastElemNum = midSearchedElem;
 		}
 	}
-	return firstElemNum - 1;
+	return firstElemNum;
 }
 
-void countSort (int* inputArray, const int numberOfElements, const int maxVal)
+int* countSort (int* inputArray, const int numberOfElements, const int maxVal)
 {
-	int histo[maxVal + 1];
+	int* histo = calloc(maxVal + 1, sizeof(*histo));
 
 	int i;
-	for (i = 0; i < maxVal; i++)
-	{
-		histo[i] = 0;
-	}
 	for (i = 0; i < numberOfElements; i++)
 	{
 		++histo[inputArray[i]];
 	}
-	// te dwie petle wykonają się w sumie numOfElements razy.
 	int jMemoryVal = 0;
 	for (i = 0; i < maxVal; i++)
 	{
@@ -99,18 +94,19 @@ void countSort (int* inputArray, const int numberOfElements, const int maxVal)
 		}
 		jMemoryVal += j;
 	}
+return histo;
 }
 
 int randomNumbers(int min, int max)
 {
     int tmp;
-    if (max>=min)
-        max-= min;
+    if (max >= min)
+        max -= min;
     else
     {
-        tmp= min - max;
-        min= max;
-        max= tmp;
+        tmp = min - max;
+        min = max;
+        max = tmp;
     }
     return max ? (rand() % max + min) : min;
 }

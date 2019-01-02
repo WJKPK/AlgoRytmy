@@ -42,10 +42,10 @@ Test(binarySearchTestLowerBound,evenSearch)
 Test(binarySearchTestUpperBound, oddSearch)
 {
 	int tab[17] = {0, 1, 2, 3, 3, 4, 4, 4, 4, 7, 8, 9, 10, 11, 12, 13, 14};
-	cr_assert(binarySearchUpperBound(0,tab,17) == 0, "ERR  in: binarySearchUpperCas: 1");
-	cr_assert(binarySearchUpperBound(4,tab,17) == 8, "ERR  in: binarySearchUpperCas: 2");
-	cr_assert(binarySearchUpperBound(3,tab,17) == 4, "ERR  in: binarySearchUpperCas: 3");
-	cr_assert(binarySearchUpperBound(14,tab,17) == 16, "ERR  in: binarySearchUpperCas: 4");
+	cr_assert(binarySearchUpperBound(0,tab,17) == 1, "ERR  in: binarySearchUpperCas: 1");
+	cr_assert(binarySearchUpperBound(4,tab,17) == 9, "ERR  in: binarySearchUpperCas: 2");
+	cr_assert(binarySearchUpperBound(3,tab,17) == 5, "ERR  in: binarySearchUpperCas: 3");
+	cr_assert(binarySearchUpperBound(14,tab,17) == 17, "ERR  in: binarySearchUpperCas: 4");
 }
 
 Test(countSortTest,firstTestSearch)

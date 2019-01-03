@@ -33,7 +33,9 @@ int main()
 {
 	int arrayOfNumbers[SIZE] = {2, 3, 3, 7, 7, 13, 18, 21, 25, 27};
 	printf("\nGiven is an array: 3, 3, 3, 7, 7, 13, 18, 21, 25, 27\n");
+	printf("Search element with value 3 using a lowerbound binary search: %d\n", binarySearchLowerBound(3, arrayOfNumbers, SIZE));
 	printf("Search element with value 4 using a lowerbound binary search: %d\n", binarySearchLowerBound(4, arrayOfNumbers, SIZE));
+	printf("Search element with value 3 using a upperbound binary search: %d\n", binarySearchUpperBound(3, arrayOfNumbers, SIZE));
 	printf("Search element with value 4 using a upperbound binary search: %d\n", binarySearchUpperBound(4, arrayOfNumbers, SIZE));
 	printf("Search element with value 4 using a binary search: %d\n", binarySearch(4, arrayOfNumbers, SIZE));
 	printf("Search element with value 2 using a binary search: %d\n", binarySearch(2, arrayOfNumbers, SIZE));
